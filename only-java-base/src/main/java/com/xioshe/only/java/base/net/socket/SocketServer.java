@@ -1,4 +1,4 @@
-package com.xioshe.only.java.base.net;
+package com.xioshe.only.java.base.net.socket;
 
 import java.io.*;
 import java.net.Socket;

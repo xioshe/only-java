@@ -1,4 +1,4 @@
-package com.xioshe.only.java.base.net;
+package com.xioshe.only.java.base.net.socket;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
