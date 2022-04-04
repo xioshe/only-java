@@ -17,4 +17,12 @@ public class SomethingUnsafe {
         instanceField.setAccessible(true);
         return (Unsafe) instanceField.get(null);
     }
+
+    public static Object peakFeild(Object o, Class<?> clazz, String fieldName)
+            throws NoSuchFieldException, IllegalAccessException {
+        Unsafe unsafe = stealInstance();
+        Field field = clazz.getDeclaredField(fieldName);
+        long offset = unsafe.objectFieldOffset(field);
+        return unsafe.getObject(o, offset);
+    }
 }
