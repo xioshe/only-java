@@ -22,7 +22,8 @@ public class ParallelTcpEchoServer implements SocketServer {
     public void startServer(int port) {
         try (ServerSocket server = new ServerSocket(port)) {
             System.out.println("Waiting for accept...");
-            while (true) {
+            // 提供一个终止循环的方式
+            while (!Thread.currentThread().isInterrupted()) {
                 // 不能用 try-with-resource，否则子线程执行时 Socket 已经关闭了
                 Socket incoming = server.accept();
                 System.out.println("Accepted a connection, number is " + getSeq());
