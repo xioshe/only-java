@@ -93,7 +93,8 @@ public class Reactor implements Runnable, AutoCloseable {
                 if (socketChannel != null) {
                     System.out.println(socketChannel.getRemoteAddress());
                     // 注册 SocketChannel
-                    new IoHandler(socketChannel).register(acceptKey.selector());
+//                    new IoHandler(socketChannel).register(acceptKey.selector());
+                    new MultiThreadIoHandler(socketChannel).register(acceptKey.selector());
                 }
             } catch (IOException e) {
                 throw new RuntimeException(e);
